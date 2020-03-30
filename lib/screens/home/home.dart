@@ -56,9 +56,27 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "$time",
-                  style: Theme.of(context).textTheme.display2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "$time",
+                      style: Theme.of(context).textTheme.display2,
+                    ),
+                    RaisedButton(
+                      onPressed: () {
+                        level = 8;
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => Home(
+                              size: level,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Text("RESTART"),
+                    ),
+                  ],
                 ),
               ),
               Padding(
@@ -89,6 +107,7 @@ class _HomeState extends State<Home> {
                             print(cardFlips);
                             if (cardFlips.every((t) => t == false)) {
                               print("Won");
+                              timer.cancel();
                               showResult();
                             }
                           }
@@ -128,10 +147,10 @@ class _HomeState extends State<Home> {
       barrierDismissible: false,
       builder: (context) => AlertDialog(
         title: Text(
-          "Won!!!",
+          "You won!",
           style: Theme.of(context).textTheme.display2,
         ),
-        content: Text("Time $time"),
+        content: Text("Time: $time seconds"),
         actions: <Widget>[
           FlatButton(
             onPressed: () {
