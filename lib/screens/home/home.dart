@@ -61,7 +61,7 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     Text(
                       "$time",
-                      style: Theme.of(context).textTheme.display2,
+                      style: Theme.of(context).textTheme.headline3,
                     ),
                     RaisedButton(
                       onPressed: () {
@@ -126,7 +126,7 @@ class _HomeState extends State<Home> {
                       child: Center(
                         child: Text(
                           "${data[index]}",
-                          style: Theme.of(context).textTheme.display2,
+                          style: Theme.of(context).textTheme.headline3,
                         ),
                       ),
                     ),
@@ -148,7 +148,7 @@ class _HomeState extends State<Home> {
       builder: (context) => AlertDialog(
         title: Text(
           "You won!",
-          style: Theme.of(context).textTheme.display2,
+          style: Theme.of(context).textTheme.headline3,
         ),
         content: Text("Time: $time seconds"),
         actions: <Widget>[
